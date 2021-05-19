@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('products.app')
 
 @section('content')
     <div class="row">
@@ -7,7 +7,7 @@
                 <h2>Test Inventory </h2>
             </div>
             <div class="pull-right">
-                <a class="btn btn-success" href="" title="Create a product"> <i class="fas fa-plus-circle"></i>
+                <a class="btn btn-success" href="{{ route('products.create') }}" > <i class="fas fa-plus-circle"></i>
                     </a>
             </div>
         </div>
@@ -21,7 +21,7 @@
 
     <table class="table table-bordered table-responsive-lg">
         <tr>
-            <th>No</th>
+            <th>ID</th>
             <th>Name</th>
             <th>description</th>
             <th>Price</th>
@@ -30,11 +30,11 @@
         </tr>
         @foreach ($products as $product)
             <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
+                <td>{{$product->id }}</td>
+                <td>{{$product->name }}</td>
+                <td>{{$product->description }}</td>
+                <td>{{$product->price }}</td>
+                <td>{{$product->created_at }}</td>
                 <td>
                     <form action="" method="POST">
 
