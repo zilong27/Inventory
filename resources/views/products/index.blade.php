@@ -1,48 +1,68 @@
 @extends('products.app')
 
 @section('content')
+@include('products.sidebar')
+<h2>Inventory System</h2>
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-13">
+            <div class="card">
+
     <div class="row">
         <div class="col-lg-12 margin-tb">
-            <div class="pull-left">
-                <h2>Test Inventory </h2>
-            </div>
             <div class="pull-right">
-                <a class="btn btn-success" href="{{ route('products.create') }}" > <i class="fas fa-plus-circle"></i>
+                <nav class="navbar navbar bg-light">
+                    <form class="form-inline">
+                      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                      <button class="btn btn-outline-success my-3 my-sm-0" type="submit">Search</button>
+                    </form>
+                  </nav>
+            </div>
+            <div class="pull-left">
+                <a class="btn btn-success" href="{{ route('products.create') }}"> Add Item  <i class="fas fa-plus-circle"></i>
                     </a>
+                    
             </div>
         </div>
     </div>
+    
+
 
     @if ($message = Session::get('success'))
-        <div class="alert alert-success">
-            <p></p>
-        </div>
-    @endif
-
-    <table class="table table-bordered table-responsive-lg">
+    <div class="alert alert-success">
+       <p>{{ $message }}</p>
+    </div>
+ @endif
+ <div class="table-responsive table-full-width">
+	<table class="table table-hover table-striped">
+        <thead>
         <tr>
-            <th>ID</th>
-            <th>Name</th>
+            
+            <th>Item</th>
             <th>description</th>
-            <th>Price</th>
-            <th>Date Created</th>
+            <th>suplier</th>
+            <th>quantity</th>
+            <th>price</th>
             <th>Actions</th>
         </tr>
+       
+        </thead>
+      
         @foreach ($products as $product)
+        
+    
             <tr>
-                <td>{{$product->id }}</td>
+              
                 <td>{{$product->name }}</td>
                 <td>{{$product->description }}</td>
+                <td></td>
+                <td>{{ $product->quantity }}</td>
                 <td>{{$product->price }}</td>
-                <td>{{$product->created_at }}</td>
+                
                 <td>
-                    <form action="" method="POST">
+                    <form action="{{ route('products.destroy',$product->id) }}" method="POST">
 
-                        <a href="" title="show">
-                            <i class="fas fa-eye text-success  fa-lg"></i>
-                        </a>
-
-                        <a href="">
+                        <a href="{{ route('products.edit',$product->id) }}">
                             <i class="fas fa-edit  fa-lg"></i>
                         </a>
 
@@ -55,9 +75,18 @@
                     </form>
                 </td>
             </tr>
+          
+       
+       
         @endforeach
     </table>
 
-    {!! $products->links() !!}
+
+            </div>
+        </div>
+    </div>
+</div>
+   
+    @yield('content')
 
 @endsection

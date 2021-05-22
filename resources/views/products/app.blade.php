@@ -20,7 +20,7 @@
             bottom: 0;
             width: 100%;
             background-color: #9C27B0;
-            color: white;
+            color: rgb(157, 184, 63);
             text-align: center;
         }
 
@@ -30,8 +30,12 @@
 
 <body>
     @section('sidebar')
-
+   
+     
+    
+    
     @show
+    
 
     <div class="container">
         @yield('content')

@@ -10,17 +10,16 @@ use Response;
 
 class ProductController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
+ 
+    public function index(Request $request)
     {
-        $products = Product::latest()->paginate(5);
+        $products = Product::all();
 
-        return view('products.index', compact('products'))
-            ->with('i', (request()->input('page', 1) - 1) * 5);
+        return view('products.index',[
+                   'products' => $products
+            
+            ]);
+           
     }
 
     /**
@@ -44,13 +43,22 @@ class ProductController extends Controller
         $request->validate([
             'name' => 'required',
             'description' => 'required',
-            'price' => 'required'
+            'price' => 'required',
+            'quantity' => 'required',
+            
         ]);
 
-        Product::create($request->all());
+        Product::create([
+            'name' => $request->input('name'),
+            'description' => $request->input('description'),
+            'price' => $request->input('price'),
+            'quantity' => $request->input('quantity')
+
+
+        ]);
 
         return redirect()->route('products.index')
-            ->with('success', 'Product created successfully.');
+            ->with('success', ' New Item successfully Created !.');
     }
 
     /**
@@ -87,12 +95,13 @@ class ProductController extends Controller
         $request->validate([
             'name' => 'required',
             'description' => 'required',
-            'price' => 'required'
+            'price' => 'required',
+            'quantity' => 'required',
         ]);
         $product->update($request->all());
 
         return redirect()->route('products.index')
-            ->with('success', 'Product updated successfully');
+            ->with('success', 'Item  successfully updated!!');
     }
 
     /**
@@ -106,6 +115,6 @@ class ProductController extends Controller
         $product->delete();
 
         return redirect()->route('products.index')
-            ->with('success', 'Product deleted successfully');
+            ->with('success', 'Item successfully deleted!');
     }
 }
