@@ -1,6 +1,16 @@
-@extends('products.app')
-
+@include('products.sidebar')
+       </div>
+       <div class="main_content">
+           <div class="#"></div>  
+           <div class="info">
+@extends('layouts.app')
 @section('content')
+<div id="content">
+    <div class="container">
+     <div class="row justify-content-center">
+         <div class="col-md-10">
+            <div class="card">
+                <div class="card-body">
     <div class="row">
         <div class="col-lg-12 margin-tb">
             <div class="pull-left">

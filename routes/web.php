@@ -1,9 +1,8 @@
 <?php
 
-use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductsController;
-
+use App\Http\Controllers\SettingsController;
 use Illuminate\Support\Facades\Input;
 use App\User;
 
@@ -20,8 +19,8 @@ use App\User;
 */
 
 Route::resource('/products','App\Http\Controllers\ProductController');
-Route::get('/dashboard', 'App\Http\Controllers\DashboardController@index')->name('dashboard');
 Auth::routes();
-
-
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::resource('/settings','App\Http\Controllers\SettingsController');
+Route::resource('/models','App\Http\Controllers\ModelsController');
+
