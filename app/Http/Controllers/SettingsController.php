@@ -51,6 +51,13 @@ class SettingsController extends Controller
         return redirect()->route('settings.index')
             ->with('success', '  Created !.');
     }
+    public function destroy(Settings $settings)
+    {
+        $settings->delete();
+
+        return redirect()->route('suppliers')
+            ->with('success', 'supplier successfully deleted!');
+    }
 
     
 

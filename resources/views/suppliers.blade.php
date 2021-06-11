@@ -13,45 +13,37 @@
             <div class="card">
                 <div class="card-body">
     <div class="row">
-        <div class="col-lg-9 margin-tb">
+        <div class="col-lg-12 margin-tb">
             <div class="pull-left">
-                <h2>Models List</h2>
+                <h2>Suppliers List</h2>
             </div>
             
         </div>
     </div>
-    
-
     <table class="table table-striped table-bordered table-sm">
-         <table class="table table-hover table-striped">
-             <thead>
-             <tr>
-                 
-                 <th>ID</th>
-                 <th width="5%">Models</th>
+        <table class="table table-hover table-striped">
+            <thead>
+            <tr>
+                
+                <th>ID</th>
+                <th width="5%">Suppliers</th>
                 <th></th>
-             </tr>
-            </thead>
-            @foreach ($models  as $models )
+               
+            </tr>
+           </thead>
+           @foreach ($suppliers  as $suppliers )
            
            <tr>
                            
-               <td>{{$models->id }}</td>
-               <td>{{ $models->model }}</td>
+               <td>{{ $suppliers->id }}</td>
+               <td>{{ $suppliers->supplier }}</td>
            
                
                <td>
                 
                </td>
            </tr>
-    
-            @endforeach
-
-
-        </table>
-
-
-
-    </table>
-   
-@endsection
+           @endforeach  
+        </table> 
+    </table> 
+    @endsection
