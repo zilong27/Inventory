@@ -2,9 +2,9 @@
           
        </div>
        <div class="main_content">
-           <div class="header"></div>  
+           <div class="#"></div>  
            <div class="info">
-@extends('products.app')
+@extends('layouts.app')
 
 @section('content')
 <div id="content">

@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductsController;
 use App\Http\Controllers\SettingsController;
+use App\Http\Controllers\ModelsController;
 use Illuminate\Support\Facades\Input;
 use App\User;
 
@@ -22,5 +23,5 @@ Route::resource('/products','App\Http\Controllers\ProductController');
 Auth::routes();
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::resource('/settings','App\Http\Controllers\SettingsController');
-Route::resource('/models','App\Http\Controllers\ModelsController');
+Route::get('/models', [App\Http\Controllers\ModelsController::class, 'index'])->name('models');
 

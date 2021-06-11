@@ -130,13 +130,13 @@
                <li><a href="#"><i class="fas fa-address-card"></i>About</a></li>
                
             
-               <li data-toggle="dropdown" data-target="#service" class="dropdown-toggle" >
-               <a href="{{ route ('settings.index') }}"><i class="fas fa-project-diagram"> <span class="caret"></span></i>Settings</a>
+               <li data-toggle="dropdown"  >
+               <a href="{{ route ('settings.index') }}"><i class="fas fa-project-diagram"></i>Settings</a>
                </li>
-               <ul class="dropdown-menu animated fadeInButom">
+               <ul class="dropdown-menu animated fadeInButtom">
                 
                 <li><a href="{{ route ('settings.index') }}">Manage Settings</a></li>
-                 <li><a href="{{route ('settings.models') }}">Models</a></li>
+                 <li><a href="{{ route ('models') }}">Models</a></li>
                  <li><a href="#">Locations</a></li>
                  <li><a href="#">Suppliers</a></li>
                

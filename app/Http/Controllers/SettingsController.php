@@ -12,9 +12,12 @@ class SettingsController extends Controller
         public function index()
     {
        
-    
-
-        return view('settings.index');
+        $settings = Settings::all();
+        return view('settings.index',[
+                   'settings' => $settings
+            
+            ]);
+           
            
     }
 

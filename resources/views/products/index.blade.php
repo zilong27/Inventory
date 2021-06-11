@@ -61,7 +61,7 @@
                                            </tr>
                                           
                                            </thead>
-                                         
+                                       
                                            @foreach ($products as $product)
                                            @if(isset(Auth::user()->id) && Auth::user()->id == $product->user_id)
                          <tr>
@@ -92,9 +92,10 @@
                       
                       @endif
                       @endforeach
-                    </table>    
+                    </table>
+                  </table>    
                   <div class="pull-right">
-                    {{ $products->links() }}
+                   {{ $products->links() }}
                 </div>
              </div>
            </div>                                            
