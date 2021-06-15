@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Product;
+use App\Models\Settings;
 use Illuminate\Http\Request;
+
 
 use Response;
 
@@ -13,20 +15,26 @@ class ProductController extends Controller
   
     public function index()
     {
-       
+        $settings = Settings::all();
         $products = Product::paginate(4);
 
         return view('products.index',[
-                   'products' => $products
+                   'products' => $products,
+                   'settings'=> $settings
             
             ]);
            
     }
 
    
-    public function create()
-    {
-        return view('products.create');
+    public function create(Request $request)
+    { 
+        $settings = Settings::all(); 
+        return view('products.create',[
+                 'products' => $settings
+    
+    
+             ]);
     }
 
   
@@ -37,6 +45,7 @@ class ProductController extends Controller
             'description' => 'required',
             'price' => 'required',
             'quantity' => 'required',
+            'model' =>'required',
         
             
         ]);
@@ -46,6 +55,7 @@ class ProductController extends Controller
             'description' => $request->input('description'),
             'price' => $request->input('price'),
             'quantity' => $request->input('quantity'),
+            'model' => $request->input('model'),
             'user_id' => auth()->user()->id 
 
         ]);

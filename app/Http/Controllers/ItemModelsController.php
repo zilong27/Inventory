@@ -1,11 +1,10 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Models\Model;
 use App\Models\Settings;
 use Illuminate\Http\Request;
 
-class ModelsController extends Controller
+class ItemModelsController extends Controller
 {
     public function index()
     {

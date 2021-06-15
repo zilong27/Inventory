@@ -135,11 +135,11 @@
                </li>
                <ul class="dropdown-menu animated fadeInButtom">
                 
-                <li><a href="{{ route ('settings.index') }}">Manage Settings</a></li>
+                
                  <li><a href="{{ route ('models') }}">Models</a></li>
                  <li><a href="{{ route ('suppliers') }}">Suppliers</a></li>
                  <li><a href="{{ route ('location') }}">Locations</a></li>
                
                 </ul>
            </ul>
-           </ul> 
+          

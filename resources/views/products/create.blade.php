@@ -46,11 +46,43 @@
                 </div>
             </div>
 
+            <div class="col-xs-12 col-sm-12 col-md-12">
+                <div class="form-group">
+                    <strong>Model:</strong>
+                    <select type="text" name="model" class="form-control" placeholder="Model" >
+                    
+                        @foreach ($products as $settings) 
+                        {
+                          <option value="{{ $settings->id }}">{{ $settings->model }}</option>
+                        }
+                        @endforeach
+                      </select>
+                </div>
+            </div>
+
                 <div class="col-xs-12 col-sm-12 col-md-12">
                     <div class="form-group">
-                        <strong>Suplier Name:</strong>
-                        <input type="text" name="suplier" class="form-control" placeholder="suplier" >
-                    
+                        <strong>Supplier:</strong>
+                        <select type="text" name="suplier" class="form-control" placeholder="suplier" >
+                        @foreach ($products as $settings) 
+                        {
+                          <option value="{{ $settings->id }}">{{ $settings->supplier }}</option>
+                        }
+                        @endforeach
+                      </select>
+                    </div>
+                </div>
+
+                <div class="col-xs-12 col-sm-12 col-md-12">
+                    <div class="form-group">
+                        <strong>Location:</strong>
+                        <select type="text" name="location" class="form-control" placeholder="location" >
+                        @foreach ($products as $settings) 
+                        {
+                          <option value="{{ $settings->id }}">{{ $settings->location }}</option>
+                        }
+                        @endforeach
+                      </select>
                     </div>
                 </div>
 
