@@ -5,6 +5,7 @@ use App\Http\Controllers\ProductsController;
 use App\Http\Controllers\SettingsController;
 use App\Http\Controllers\ItemModelsController;
 use App\Http\Controllers\LocationController;
+use App\Http\Controllers\SuppliersController;
 use Illuminate\Support\Facades\Input;
 use App\User;
 
@@ -29,9 +30,9 @@ Route::resource('/settings','App\Http\Controllers\SettingsController');
 });
 //setitngs
 Route::group(['midleware' => 'settings','prefix' =>'settings.'],function(){
-    Route::get('/models', [App\Http\Controllers\ItemModelsController::class, 'index'])->name('models');
-    Route::get('/suppliers', [App\Http\Controllers\SuppliersController::class, 'index'])->name('suppliers');
-    Route::get('/location','App\Http\Controllers\LocationController@index')->name('location');
+    Route::resource('/models','App\Http\Controllers\ItemModelsController');
+    Route::resource('/suppliers','App\Http\Controllers\SuppliersController');
+    Route::resource('/locations','App\Http\Controllers\LocationController');
 });
 
 

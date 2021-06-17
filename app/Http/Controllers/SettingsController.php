@@ -13,8 +13,8 @@ class SettingsController extends Controller
     {
        
         $settings = Settings::all();
-        return view('settings.index',[
-                   'settings' => $settings
+        return view('models.index',[
+                   'models' => $settings
             
             ]);
            
@@ -24,7 +24,7 @@ class SettingsController extends Controller
    
     public function create()
     {
-        return view('settings.create');
+        return view('models.create');
     }
 
   
@@ -32,8 +32,8 @@ class SettingsController extends Controller
     {
         $request->validate([
             'model' => 'required',
-            'supplier' => 'required',
-            'location' => 'required',
+            'model_number' => 'required',
+           
            
         
             
@@ -41,24 +41,32 @@ class SettingsController extends Controller
 
         Settings::create([
             'model' => $request->input('model'),
-            'supplier' => $request->input('supplier'),
-            'location' => $request->input('location')
+            'model_number' => $request->input('model_number'),
+            'user_id' => auth()->user()->id 
+           
             
             
 
         ]);
     
-        return redirect()->route('settings.index')
-            ->with('success', '  Created !.');
+        return redirect()->route('models.index')
+               ->with('success', '  Created !.');
+            
+            
     }
-    public function destroy(Settings $settings)
+    public function show(Settings $settings)
     {
-        $settings->delete();
+        return view('settings.show',compact('settings'));
+    }
+    public function destroy(Settings $model)
+    {
+        $model->delete();
 
-        return redirect()->route('suppliers')
-            ->with('success', 'supplier successfully deleted!');
+        return redirect()->route('models.index')
+            ->with('success', ' successfully deleted!');
     }
 
+    
     
 
 }

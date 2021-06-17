@@ -9,12 +9,13 @@ class ItemModelsController extends Controller
     public function index()
     {
         $settings = Settings::all();
-        return view('models',[
+        return view('models.index',[
                    'models' => $settings
             
             ]);
     
     }
+    
    
 
 

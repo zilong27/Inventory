@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Product;
 use App\Models\Settings;
+use App\Models\Suppliers;
 use Illuminate\Http\Request;
 
 
@@ -15,12 +16,14 @@ class ProductController extends Controller
   
     public function index()
     {
+        $suppliers = Suppliers::all();
         $settings = Settings::all();
         $products = Product::paginate(4);
 
         return view('products.index',[
                    'products' => $products,
-                   'settings'=> $settings
+                   'settings'=> $settings,
+                   'suppliers'=> $suppliers
             
             ]);
            
@@ -29,9 +32,11 @@ class ProductController extends Controller
    
     public function create(Request $request)
     { 
+        $suppliers = Suppliers::all();
         $settings = Settings::all(); 
         return view('products.create',[
-                 'products' => $settings
+                 'products' => $settings,
+                 'suppliers'=> $suppliers
     
     
              ]);

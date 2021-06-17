@@ -64,9 +64,9 @@
                     <div class="form-group">
                         <strong>Supplier:</strong>
                         <select type="text" name="suplier" class="form-control" placeholder="suplier" >
-                        @foreach ($products as $settings) 
+                        @foreach ($products as $suppliers) 
                         {
-                          <option value="{{ $settings->id }}">{{ $settings->supplier }}</option>
+                          <option value="{{ $suppliers->id }}">{{ $suppliers->suppliers }}</option>
                         }
                         @endforeach
                       </select>

@@ -1,3 +1,4 @@
+@if(Auth::user())
 @extends('layouts.app')
 @include('products.sidebar')
                               
@@ -31,7 +32,7 @@
                                          </nav>
                                         </div>
                                </div>
-                               @if(Auth::user())
+                               
                                    <div class="pull-right">
                                        <a class="btn btn-success" href="{{ route('products.create') }}"> Add Item  <i class="fas fa-plus-circle"></i>
                                            </a>
@@ -55,6 +56,8 @@
                                                <th>Item</th>
                                                <th>description</th>
                                                <th>suplier</th>
+                                               <th>Model</th>
+                                               <th>Location</th>
                                                <th>quantity</th>
                                                <th>price</th>
                                                <th>Actions</th>
@@ -68,6 +71,8 @@
                             
                             <td>{{$product->name }}</td>
                             <td>{{$product->description }}</td>
+                            <td></td>
+                            <td></td>
                             <td></td>
                             <td>{{ $product->quantity }}</td>
                             <td>{{$product->price }}</td>
