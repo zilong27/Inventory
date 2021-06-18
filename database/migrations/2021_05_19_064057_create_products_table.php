@@ -20,6 +20,9 @@ class CreateProductsTable extends Migration
             $table->string('description');
             $table->decimal('price')->nullable()->default(0.00);
             $table->string('quantity');
+            $table->string('models');
+            $table->string('suppliers');
+            $table->string('locations');
             $table->timestamps();
         });
     }

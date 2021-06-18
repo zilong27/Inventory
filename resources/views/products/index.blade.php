@@ -71,9 +71,9 @@
                             
                             <td>{{$product->name }}</td>
                             <td>{{$product->description }}</td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
+                            <td>{{ $product->suppliers }}</td>
+                            <td>{{ $product->models }}</td>
+                            <td>{{ $product->locations }}</td>
                             <td>{{ $product->quantity }}</td>
                             <td>{{$product->price }}</td>
                             

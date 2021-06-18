@@ -47,8 +47,9 @@
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
                     <strong>Suplier:</strong>
-                    <input type="text" name="suplier" class="form-control" placeholder="suplier">
-                    {!! $errors->first('suplier', '<p class="help-block">:message</p>') !!}
+                    <input type="text" name="suppliers" class="form-control" placeholder="suppliers">
+                        
+                    {!! $errors->first('supplier', '<p class="help-block">:message</p>') !!}
                 </div>
             </div>
 

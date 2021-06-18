@@ -44,7 +44,7 @@
            <tr>
                            
                <td>{{ $locations->locations }}</td>
-               <td><{{ $locations->company_name }}/td>
+               <td>{{ $locations->company_name }}</td>
               
                
            

@@ -51,7 +51,7 @@
            
                
                <td>
-                <form action="#" method="POST">
+                <form action="{{ route('suppliers.destroy',$suppliers->id) }}" method="POST">
                     <a href="{{ route('suppliers.create') }}" title="show">
                         <i class="fas fa-plus text-success  fa-lg"></i>
                     </a>

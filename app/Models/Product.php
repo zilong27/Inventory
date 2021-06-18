@@ -14,6 +14,9 @@ class Product extends Model
         'description',
         'price',
         'quantity',
+        'models',
+        'suppliers',
+        'locations',
         'user_id'
     ];
 }

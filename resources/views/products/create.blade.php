@@ -49,11 +49,11 @@
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
                     <strong>Model:</strong>
-                    <select type="text" name="model" class="form-control" placeholder="Model" >
+                    <select type="text" name="models" class="form-control" placeholder="Models" >
                     
                         @foreach ($products as $settings) 
                         {
-                          <option value="{{ $settings->id }}">{{ $settings->model }}</option>
+                          <option value="{{ $settings->model }}">{{ $settings->model }}</option>
                         }
                         @endforeach
                       </select>
@@ -63,10 +63,10 @@
                 <div class="col-xs-12 col-sm-12 col-md-12">
                     <div class="form-group">
                         <strong>Supplier:</strong>
-                        <select type="text" name="suplier" class="form-control" placeholder="suplier" >
-                        @foreach ($products as $suppliers) 
+                        <select type="text" name="suppliers" class="form-control" placeholder="suppliers" >
+                        @foreach ($suppliers as $suppliers) 
                         {
-                          <option value="{{ $suppliers->id }}">{{ $suppliers->suppliers }}</option>
+                          <option value="{{ $suppliers->suppliers }}">{{ $suppliers->suppliers }}</option>
                         }
                         @endforeach
                       </select>
@@ -76,10 +76,10 @@
                 <div class="col-xs-12 col-sm-12 col-md-12">
                     <div class="form-group">
                         <strong>Location:</strong>
-                        <select type="text" name="location" class="form-control" placeholder="location" >
-                        @foreach ($products as $settings) 
+                        <select type="text" name="locations" class="form-control" placeholder="locations" >
+                        @foreach ($locations as $locations) 
                         {
-                          <option value="{{ $settings->id }}">{{ $settings->location }}</option>
+                          <option value="{{ $locations->locations }}">{{ $locations->locations }}</option>
                         }
                         @endforeach
                       </select>

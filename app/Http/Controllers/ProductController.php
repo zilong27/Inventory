@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Product;
 use App\Models\Settings;
 use App\Models\Suppliers;
+use App\Models\Locations;
 use Illuminate\Http\Request;
 
 
@@ -16,6 +17,7 @@ class ProductController extends Controller
   
     public function index()
     {
+        $locations = Locations::all();
         $suppliers = Suppliers::all();
         $settings = Settings::all();
         $products = Product::paginate(4);
@@ -23,7 +25,8 @@ class ProductController extends Controller
         return view('products.index',[
                    'products' => $products,
                    'settings'=> $settings,
-                   'suppliers'=> $suppliers
+                   'suppliers'=> $suppliers,
+                   'locations'=> $locations
             
             ]);
            
@@ -32,11 +35,13 @@ class ProductController extends Controller
    
     public function create(Request $request)
     { 
+        $locations = Locations::all();
         $suppliers = Suppliers::all();
         $settings = Settings::all(); 
         return view('products.create',[
                  'products' => $settings,
-                 'suppliers'=> $suppliers
+                 'suppliers'=> $suppliers,
+                 'locations'=> $locations
     
     
              ]);
@@ -50,7 +55,9 @@ class ProductController extends Controller
             'description' => 'required',
             'price' => 'required',
             'quantity' => 'required',
-            'model' =>'required',
+            'models' =>'required',
+            'suppliers'=>'required',
+            'locations' => 'required',
         
             
         ]);
@@ -60,7 +67,9 @@ class ProductController extends Controller
             'description' => $request->input('description'),
             'price' => $request->input('price'),
             'quantity' => $request->input('quantity'),
-            'model' => $request->input('model'),
+            'models' => $request->input('models'),
+            'suppliers' => $request->input('suppliers'),
+            'locations' => $request->input('locations'),
             'user_id' => auth()->user()->id 
 
         ]);
@@ -78,17 +87,21 @@ class ProductController extends Controller
 
     public function edit(Product $product)
     {
+        
         return view('products.edit', compact('product'));
     }
 
  
-    public function update(Request $request, Product $product)
+    public function update(Request $request, Product $product )
     {
         $request->validate([
             'name' => 'required',
             'description' => 'required',
             'price' => 'required',
             'quantity' => 'required',
+            'models' =>'required',
+            'suppliers'=>'required',
+            'locations' => 'required',
         ]);
         $product->update($request->all());
 

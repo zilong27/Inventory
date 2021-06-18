@@ -18,7 +18,10 @@ class ProductSeeder extends Seeder
             'name' => 'test',
             'description' => 'test new',
             'price' =>'24',
-            'quantity' => '2'
+            'quantity' => '2',
+            'models' => 'CBR1000RR Fireblade SP',
+            'suppliers' => 'honda',
+            'locations' => 'shaw boulevard mandaluyong city'
         ]);
     }
 }
